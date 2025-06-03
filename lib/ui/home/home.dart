@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hometest/data/models/user.dart';
+import 'package:hometest/ui/login/login.dart';
 
 class HomeScreen extends StatelessWidget {
   final User user;
@@ -17,6 +18,15 @@ class HomeScreen extends StatelessWidget {
             Text('Name: ${user.name}'),
             Text('Email: ${user.email}'),
             Text('Job Title: ${user.jobTitle}'),
+            ElevatedButton(
+              onPressed: () {
+                // Handle logout logic here
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (_) => LoginScreen()),
+                );
+              },
+              child: const Text('Logout'),
+            )
           ],
         ),
       ),
