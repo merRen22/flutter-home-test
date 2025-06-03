@@ -1,16 +1,24 @@
 # hometest
 
-Test project
+This project allows you to login and see the user data from the DB. Take a look at it you can use the user `alice@e.com` with password `12345` to login.
 
-## Getting Started
+## Good practices
 
-This project is a starting point for a Flutter application.
+While building this project I tried to follow some good practices, like:
 
-A few resources to get you started if this is your first Flutter project:
+- Use of layers to separate concerns
+- Dependency injection
+- Automation of the serialization and deserialization of data
+- Among others
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Improvements
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+There are some improvements that can be made to this project, like:
+
+- Use of a more robust state management solution (cubit)
+- Improve navigation and UX
+- Improve error handling
+- Test for the repos as well as the services (db)
+- Usage of functional programming (fpdart)
+- Shared preferences for the user session
+- Encryption of the user password in the DB

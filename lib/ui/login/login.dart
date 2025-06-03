@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hometest/data/local/user_dao.dart';
+import 'package:hometest/repository/user_repository.dart';
 import 'package:hometest/ui/home/home.dart';
 
 class LoginScreen extends StatelessWidget {
-  final UserDao _userDao = GetIt.instance<UserDao>();
+  final UserRepository _userRepository = GetIt.instance<UserRepository>();
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -21,14 +22,14 @@ class LoginScreen extends StatelessWidget {
     final password = passwordController.text;
 
     try {
-      final userEntity = await _userDao.findUserByEmail(email);
+      final userEntity = await _userRepository.getUser(email);
       if (userEntity == null) {
         error.value = 'User not found';
       } else if (userEntity.password != password) {
         error.value = 'Incorrect password';
       } else {
         // Authentication success
-        final userModel = userEntity.toUser();
+        final userModel = userEntity;
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (_) => HomeScreen(user: userModel)),
         );
